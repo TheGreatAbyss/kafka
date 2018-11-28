@@ -59,13 +59,13 @@ public class ConnectSchema implements Schema {
         SCHEMA_TYPE_CLASSES.put(Type.ARRAY, Collections.singletonList((Class) List.class));
         SCHEMA_TYPE_CLASSES.put(Type.MAP, Collections.singletonList((Class) Map.class));
         SCHEMA_TYPE_CLASSES.put(Type.STRUCT, Collections.singletonList((Class) Struct.class));
+        LOGICAL_TYPE_CLASSES.put(Decimal.LOGICAL_NAME, Arrays.asList((Class) byte[].class, (Class) ByteBuffer.class, (Class) BigDecimal.class));
 
         for (Map.Entry<Type, List<Class>> schemaClasses : SCHEMA_TYPE_CLASSES.entrySet()) {
             for (Class<?> schemaClass : schemaClasses.getValue())
                 JAVA_CLASS_SCHEMA_TYPES.put(schemaClass, schemaClasses.getKey());
         }
 
-        LOGICAL_TYPE_CLASSES.put(Decimal.LOGICAL_NAME, Collections.singletonList((Class) BigDecimal.class));
         LOGICAL_TYPE_CLASSES.put(Date.LOGICAL_NAME, Collections.singletonList((Class) java.util.Date.class));
         LOGICAL_TYPE_CLASSES.put(Time.LOGICAL_NAME, Collections.singletonList((Class) java.util.Date.class));
         LOGICAL_TYPE_CLASSES.put(Timestamp.LOGICAL_NAME, Collections.singletonList((Class) java.util.Date.class));
